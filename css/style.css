@@ -12,7 +12,7 @@ body {
   position: relative;
   background-color: #f9f9f9;
   min-height: 100vh;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 .container *[class*="col-"] .people {
   position: absolute;
@@ -21,8 +21,14 @@ body {
   text-align: right;
   font-size: 0.6rem;
 }
-.container *[class*="col-"] .sub {
+.container *[class*="col-"] .indent {
   padding-left: 1.6rem;
+}
+.container *[class*="col-"] section {
+  padding-bottom: 1.6rem;
+}
+.container *[class*="col-"] section:last-of-type {
+  padding-bottom: 0rem;
 }
 .container *[class*="col-"] code,
 .container *[class*="col-"] .code,
