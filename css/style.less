@@ -1,1 +1,39 @@
 /*! style.less -> style.css*/
+
+body {
+  color: #303030;
+  font-family: 'Lato', sans-serif;
+  background-color: #cfcfcf;
+}
+.container {
+  min-width: 440px;
+  *[class*="col-"] {
+    padding-top: 10px;
+    position: relative;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    box-shadow: rgba(0,0,0,.2) 0 2px 5px;
+
+    .people {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      text-align: right;
+      font-size: 0.6rem;
+    }
+
+    .sub {
+      padding-left: 1.6rem;
+    }
+    code,
+    .code,
+    pre {
+      font-family: 'Ubuntu Mono';
+      background: #292929;
+      color: #fafafa;
+      font-size: 16px;
+      padding: 0;
+      padding: 10px;
+    }
+  }
+}
