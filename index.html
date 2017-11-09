@@ -10,9 +10,9 @@
 		<!-- Bootstrap Stylesheet -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 		<!-- Highlight Stylesheet -->
-		<link rel="stylesheet" href="css/agate.css">		
+		<link rel="stylesheet" href="css/agate.css">
 		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu+Mono" rel="stylesheet">		
+		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu+Mono" rel="stylesheet">
 		<!-- User Stylesheet -->
 		<link rel="stylesheet" href="css/style.css">
 	</head>
@@ -40,7 +40,7 @@
 								<p>In a MVC environment the model is ignorant of what the user sees, but rather can be seen as the raw information the app is displaying. We may create a model in order to store information about anything, but the stored information tends to be quantitative and meaningful. The information stored in the model is generated either from values passed into the constructor which may have been sent from a controller, or initialized to a default value.</p>
 <pre><code class="javascript">var Vehicle = function(attrs) {
 	var attr;
-	
+
 	// defaults:
 	this.make = 'Honda';
 	this.model = 'Civic';
@@ -72,7 +72,9 @@ Vehicle.prototype.get = function(attr) {
 							</section>
 							<section>
 								<h3>View</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>
+								<p>The view is effectively your application’s ambassador to the user — representing your application to the user and providing the basis on which the application is first judged.</p>
+                                <p>The view provides different ways to present the data received from the model. They may be templates where that data is filled, some common templates that are used include Underscore, Mustache, Handlebars, jquery-tmpl. There may be several different views and the controller has to decide which one to use.
+                                </p>
 <pre><code class="javascript">Vehicle.prototype.render = function($tar) {
 	// empty the target div
 	$tar.empty();
@@ -114,9 +116,9 @@ Vehicle.prototype.get = function(attr) {
 	defaultCar.render($tar);
 });</code></pre>
 								<button class="btn btn-info" id="defaultCar">Click to see defaultCar's values</button>
-								<div id="defaultCarContainer"></div>		
+								<div id="defaultCarContainer"></div>
 							</section>
-						</div>						
+						</div>
 					</article>
 				</div>
 			</div>
@@ -129,11 +131,11 @@ Vehicle.prototype.get = function(attr) {
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
 		<script src="js/plugins.js"></script>
 		<!-- Popper Javascript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<!-- Bootstrap Javascript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 		<!-- Highlight Javascript -->
-		<script src="js/vendor/highlight.pack.js"></script>		
+		<script src="js/vendor/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
 		<!-- Main Javascript -->
 		<script src="js/main.js"></script>
