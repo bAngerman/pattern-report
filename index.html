@@ -10,7 +10,7 @@
 		<!-- Bootstrap Stylesheet -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 		<!-- Highlight Stylesheet -->
-		<link rel="stylesheet" href="css/arduino-light.css">		
+		<link rel="stylesheet" href="css/agate.css">		
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu+Mono" rel="stylesheet">		
 		<!-- User Stylesheet -->
@@ -37,7 +37,7 @@
 						<div class="indent">
 							<section>
 								<h3>Model</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>
+								<p>In a MVC environment the model is ignorant of what the user sees, but rather can be seen as the raw information the app is displaying. We may create a model in order to store information about anything, but the stored information tends to be quantitative and meaningful. The information stored in the model is generated either from values passed into the constructor which may have been sent from a controller, or initialized to a default value.</p>
 <pre><code class="javascript">var Vehicle = function(attrs) {
 	var attr;
 	
@@ -54,6 +54,21 @@
 		}
 	}
 };</code></pre>
+							<p>This vehicle object represents a simple model. I can create a new vehicle object as follows:</p>
+<pre><code class="javascript">var defaultCar = new Vehicle();</code></pre>
+							<p>This will create a vehicle object, and since there are no attributes passed in, it will set default values onto the variable defaultCar.</p>
+<pre><code class="javascript">var myCar = new Vehicle({make: 'Volkswagen', model: 'Jetta', year: '2003', mileage: '310000'});</code></pre>
+							<p>This creates another vehicle object but the default values are overwritten with the  values contained in the hash of key value pairs which is sent to the constructor. In order to change and ask for the values stored in these variables I may create helper functions set and get:</p>
+<pre><code class="javascript">Vehicle.prototype.set = function(attr, val) {
+	this[attr] = val;
+};
+
+Vehicle.prototype.get = function(attr) {
+	return this[attr];
+};</code></pre>
+							<p>As an important side note we declare these functions as prototypes on the Vehicle object in order to not create get and set functions for every vehicle object created. The set function allows for changes in values to a vehicle object, such as if I wanted to update the mileage on defaultCar:</p>
+<pre><code class="javascript">defaultCar.set('mileage', '39999');</code></pre>
+							<p>The get function is mostly used internally to compare with, calculate or generate a view. The simple vehicle model is now complete.</p>
 							</section>
 							<section>
 								<h3>View</h3>
