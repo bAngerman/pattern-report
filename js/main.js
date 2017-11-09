@@ -14,7 +14,7 @@
     this.make = 'Honda';
     this.model = 'Civic';
     this.year = '1999';
-    this.mileage = '20000';
+    this.mileage = 20000;
 
     // mixin initial values
     if (attrs) {
@@ -36,7 +36,7 @@
 
 
   var defaultCar = new Vehicle();
-  defaultCar.set('mileage', '39999');
+  defaultCar.set('mileage', defaultCar.get('mileage') + 10000);
 
   var myCar = new Vehicle({make: 'Volkswagen', model: 'Jetta', year: '2003', mileage: '310000'});
 
@@ -83,6 +83,11 @@
   $('#defaultCar').on('click', function(e) {
     var $tar = $('#defaultCarContainer');
     defaultCar.render($tar);
+  });
+
+  $('#myCar').on('click', function(e) {
+    var $tar = $('#myCarContainer');
+    myCar.render($tar);
   });
 
   /* End Controller stuff */

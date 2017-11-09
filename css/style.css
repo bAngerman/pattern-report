@@ -7,7 +7,7 @@ body {
 .container {
   min-width: 440px;
 }
-.container *[class*="col-"] {
+.container .main {
   padding-top: 10px;
   position: relative;
   background-color: #f9f9f9;
@@ -15,25 +15,25 @@ body {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
   padding-bottom: 5rem;
 }
-.container *[class*="col-"] .people {
+.container .main .people {
   position: absolute;
   top: 12px;
   right: 10px;
   text-align: right;
   font-size: 0.6rem;
 }
-.container *[class*="col-"] .indent {
+.container .main .indent {
   padding-left: 1.6rem;
 }
-.container *[class*="col-"] section {
+.container .main section {
   padding-bottom: 1.6rem;
 }
-.container *[class*="col-"] section:last-of-type {
+.container .main section:last-of-type {
   padding-bottom: 0rem;
 }
-.container *[class*="col-"] code,
-.container *[class*="col-"] .code,
-.container *[class*="col-"] pre {
+.container .main code,
+.container .main .code,
+.container .main pre {
   tab-size: 2;
   font-family: 'Ubuntu Mono';
   background: #292929;
@@ -45,14 +45,17 @@ body {
 .container .btn {
   display: block;
 }
-.container #defaultCarContainer {
+.container #defaultCarContainer,
+.container #myCarContainer {
   margin: 0.6rem 0.3rem 0.6rem 0.6rem;
   display: inline-block;
 }
-.container #defaultCarContainer div {
+.container #defaultCarContainer div,
+.container #myCarContainer div {
   border-color: #292929 !important;
   padding: 0.6rem;
 }
-.container #defaultCarContainer div span {
+.container #defaultCarContainer div span,
+.container #myCarContainer div span {
   display: block;
 }
