@@ -107,6 +107,36 @@ Vehicle.prototype.get = function(attr) {
 	// append the dom element into the page
 	$tar.append(container);
 };</code></pre>
+                                <p>In order for an object to be displayed, the object will inherit the properties/methods from the prototype and add the function for rendering the object.</p>
+                                <pre><code class="javascript">Vehicle.prototype.render = function($tar){};</code></pre>
+                                <p>A target element is defined and will contain the elements created dynamically to hold the vehicle object attributes using the object's getter.</p>
+                                <pre><code class="javascript">var container = document.createElement('div'),
+
+    itemMake = document.createElement('span'),
+    itemModel = document.createElement('span'),
+    itemYear = document.createElement('span'),
+    itemMileage = document.createElement('span'),
+
+    make = document.createTextNode('Make: ' + this.get('make')),
+    model = document.createTextNode('Model: ' + this.get('model')),
+    year = document.createTextNode('Year: ' + this.get('year')),
+    mileage = document.createTextNode('Mileage: ' + this.get('mileage'));
+                                </code></pre>
+                                <p>Finally the object data is appended to the the main container in preparation for being displayed.</p>
+                                <pre><code class="javascript">
+itemMake.appendChild(make);
+itemModel.appendChild(model);
+itemYear.appendChild(year);
+itemMileage.appendChild(mileage);
+
+container.appendChild(itemMake);
+container.appendChild(itemModel);
+container.appendChild(itemYear);
+container.appendChild(itemMileage);
+
+// append the dom element into the page
+$tar.append(container);
+                                </code></pre>
 							</section>
 							<section>
 								<h3>Controller</h3>
