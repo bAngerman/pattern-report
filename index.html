@@ -66,17 +66,55 @@
 Vehicle.prototype.get = function(attr) {
 	return this[attr];
 };</code></pre>
-							<p>As an important side note we declare these functions as prototypes on the Vehicle object in order to not create get and set functions for every vehicle object created. The set function allows for changes in values to a vehicle object, such as if I wanted to update the mileage on defaultCar:</p>
+							<p>As an important side note we declare these functions as prototypes on the vehicle object in order to not create get and set functions for every vehicle object created. The set function allows for changes in values to a vehicle object, such as if I wanted to update the mileage on defaultCar:</p>
 <pre><code class="javascript">defaultCar.set('mileage', '39999');</code></pre>
 							<p>The get function is mostly used internally to compare with, calculate or generate a view. The simple vehicle model is now complete.</p>
 							</section>
 							<section>
 								<h3>View</h3>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>
+<pre><code class="javascript">Vehicle.prototype.render = function($tar) {
+	// empty the target div
+	$tar.empty();
+
+	// create dom elements to hold the information
+	var container = document.createElement('div'),
+
+			itemMake = document.createElement('span'),
+			itemModel = document.createElement('span'),
+			itemYear = document.createElement('span'),
+			itemMileage = document.createElement('span'),
+
+			make = document.createTextNode('Make: ' + this.get('make')),
+			model = document.createTextNode('Model: ' + this.get('model')),
+			year = document.createTextNode('Year: ' + this.get('year')),
+			mileage = document.createTextNode('Mileage: ' + this.get('mileage'));
+
+	container.className = 'border rounded';
+
+	itemMake.appendChild(make);
+	itemModel.appendChild(model);
+	itemYear.appendChild(year);
+	itemMileage.appendChild(mileage);
+
+	container.appendChild(itemMake);
+	container.appendChild(itemModel);
+	container.appendChild(itemYear);
+	container.appendChild(itemMileage);
+
+	// append the dom element into the page
+	$tar.append(container);
+};</code></pre>
 							</section>
 							<section>
 								<h3>Controller</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>							
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>
+<pre><code class="javascript">$('#defaultCar').on('click', function(e) {
+	var $tar = $('#defaultCarContainer');
+	defaultCar.render($tar);
+});</code></pre>
+								<button class="btn btn-info" id="defaultCar">Click to see defaultCar's values</button>
+								<div id="defaultCarContainer"></div>		
 							</section>
 						</div>						
 					</article>
