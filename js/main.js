@@ -34,12 +34,6 @@
 
   /* End Model Constructor */
 
-
-  var defaultCar = new Vehicle();
-  defaultCar.set('mileage', defaultCar.get('mileage') + 10000);
-
-  var myCar = new Vehicle({make: 'Volkswagen', model: 'Jetta', year: '2003', mileage: '310000'});
-
   /* Begin Vehicle View stuff */
   
   Vehicle.prototype.render = function($tar) {
@@ -54,6 +48,7 @@
         itemYear = document.createElement('span'),
         itemMileage = document.createElement('span'),
 
+        // here is where we extract information using the vehicle's get() function
         make = document.createTextNode('Make: ' + this.get('make')),
         model = document.createTextNode('Model: ' + this.get('model')),
         year = document.createTextNode('Year: ' + this.get('year')),
@@ -77,6 +72,14 @@
 
   /* End Vehicle View stuff */
 
+  /* Start demo vehicles */
+
+  var defaultCar = new Vehicle();
+  defaultCar.set('mileage', defaultCar.get('mileage') + 10000);
+
+  var myCar = new Vehicle({make: 'Volkswagen', model: 'Jetta', year: '2003', mileage: '310000'});
+
+  /* End demo vehicles */
 
   /* Start Controller stuff */
 
