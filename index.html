@@ -23,16 +23,18 @@
 
 		<div class="container"> <!-- BEGIN container -->
 			<div class="row justify-content-center">
-				<div class="col-12 col-md-10">
+				<div class="main col-12 col-md-10">
 					<div class="people">Michael Bublitz<br>Antoine Tremblay<br>Brendan Angerman</div>
 					<article>
 						<section>
 							<h1>Design Patterns</h1>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>
+							<p>When working with any program language it can become difficult to maintain a system of organization and consistency. Design patterns provide solutions that may be descriptive toward the problem, while also being generic and easily reused for similar projects in the future. There are three varieties of design patterns which target different areas of applications. Creational patterns focus on controlling object creation in order to avoid uneccesary complexity in a project. Structural patterns establish relationships between different objects in order to restrict unnecessary change through the application. The last category is the behavioural pattern which focuses on communication between objects.</p>
 						</section>
 						<section>
 							<h1>MVC Pattern</h1>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>
+							<p>MVC (Model-View-Control) is a design pattern developed from the idea of “Separated Presentation”. Modern frameworks like Backbone.js, Ember.js, React.js and more create a clear division between data, and presentation while also importantly creating structure for the app. This division allows for a more controlled and organized system, and can allow for portions of the model to be reused in other interfaces of the application.</p>
+							<div class="img-center"><img src="img\2604.MVC-Process_71DD0CBD.png" alt="MVC process flowchart"></div>
+							<p>The user does not get to directly interact with the model, but rather the interaction is controlled by the controller. When the model is then updated the model will ask the view to update what the user sees. Through this process an interactive application with a maintainable codebase is developed.</p>
 						</section>
 						<div class="indent">
 							<section>
@@ -66,8 +68,9 @@
 Vehicle.prototype.get = function(attr) {
 	return this[attr];
 };</code></pre>
-							<p>As an important side note we declare these functions as prototypes on the vehicle object in order to not create get and set functions for every vehicle object created. The set function allows for changes in values to a vehicle object, such as if I wanted to update the mileage on defaultCar:</p>
-<pre><code class="javascript">defaultCar.set('mileage', '39999');</code></pre>
+							<p>As an important side note we declare these functions as prototypes on the vehicle object in order to not create get and set functions for every vehicle object created. The set function allows for changes in values to a vehicle object, such as if I wanted to update the mileage on defaultCar by using its current mileage and adding to it: </p>
+<pre><code class="javascript">defaultCar.set('mileage', defaultCar.get('mileage') + 10000);
+	// defaultCar.get('mileage') is now 30000 (20000 from constructor + 10000 added).</code></pre>
 							<p>The get function is mostly used internally to compare with, calculate or generate a view. The simple vehicle model is now complete.</p>
 							</section>
 							<section>
@@ -144,9 +147,23 @@ $tar.append(container);
 <pre><code class="javascript">$('#defaultCar').on('click', function(e) {
 	var $tar = $('#defaultCarContainer');
 	defaultCar.render($tar);
+});
+
+$('#myCar').on('click', function(e) {
+	var $tar = $('#myCarContainer');
+	myCar.render($tar);
 });</code></pre>
-								<button class="btn btn-info" id="defaultCar">Click to see defaultCar's values</button>
-								<div id="defaultCarContainer"></div>
+								<div class="row">
+									<div class="col-12 col-md-6">
+										<button class="btn btn-info" id="defaultCar">Click to see defaultCar's values</button>
+										<div id="defaultCarContainer"></div>
+									</div>
+									<div class="col-12 col-md-6">
+										<button class="btn btn-info" id="myCar">Click to see myCar's values</button>
+										<div id="myCarContainer"></div>
+									</div>
+								</div>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis,</p>
 							</section>
 						</div>
 					</article>
