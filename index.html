@@ -34,12 +34,12 @@
 							<h1>MVC Pattern</h1>
 							<p>MVC (Model-View-Control) is a design pattern developed from the idea of “Separated Presentation”. Modern frameworks like Backbone.js, Ember.js, React.js and more create a clear division between data, and presentation while also importantly creating structure for the app. This division allows for a more controlled and organized system, and can allow for portions of the model to be reused in other interfaces of the application.</p>
 							<div class="img-center"><img src="img\2604.MVC-Process_71DD0CBD.png" alt="MVC process flowchart"></div>
-							<p>The user does not get to directly interact with the model, but rather the interaction is controlled by the controller. When the model is then updated the model will ask the view to update what the user sees. Through this process an interactive application with a maintainable codebase is developed.</p>
+							<p>The user does not get to directly interact with the model, but rather the interaction is controlled by the controller. When the model is then updated the model will ask the view to update what the user sees. Through this process a interactive application with a maintainable codebase is developed.</p>
 						</section>
 						<div class="indent">
 							<section>
 								<h3>Model</h3>
-								<p>In a MVC environment the model is ignorant of what the user sees, but rather can be seen as the raw information the app is displaying. We may create a model in order to store information about anything, but the stored information tends to be quantitative and meaningful. The information stored in the model is generated either from values passed into the constructor which may have been sent from a controller, or initialized to a default value.</p>
+								<p>In a MVC environment the model is ignorant of what the user sees, but rather can be considered as the raw information contained in the application. We may create a model in order to store information about anything, but the stored information tends to be quantitative and meaningful. The information stored in the model is generated either from values passed into the constructor which may have been sent from a controller, or initialized to a default value.</p>
 <pre><code class="javascript">var Vehicle = function(attrs) {
 	var attr;
 
@@ -68,10 +68,10 @@
 Vehicle.prototype.get = function(attr) {
 	return this[attr];
 };</code></pre>
-							<p>As an important side note we declare these functions as prototypes on the vehicle object in order to not create get and set functions for every vehicle object created. The set function allows for changes in values to a vehicle object, such as if I wanted to update the mileage on defaultCar by using its current mileage and adding to it: </p>
+							<p>As an important side note we declare these functions as prototypes on the vehicle object in order to not create get and set functions for every vehicle object created. The set function is incomplete as it should also call a render function to update what the user sees in their application. The set function allows for changes in values to a vehicle object. I could update the vehicle objects mileage with the following:</p>
 <pre><code class="javascript">defaultCar.set('mileage', defaultCar.get('mileage') + 10000);
 	// defaultCar.get('mileage') is now 30000 (20000 from constructor + 10000 added).</code></pre>
-							<p>The get function is mostly used internally to compare with, calculate or generate a view. The simple vehicle model is now complete.</p>
+							<p>The get function is mostly used internally to compare values, calculate new values with or generate a view. The simple vehicle model is now complete.</p>
 							</section>
 							<section>
 								<h3>View</h3>
@@ -79,9 +79,9 @@ Vehicle.prototype.get = function(attr) {
 								<p>The view provides different ways to present the data received from the model. They may be templates where that data is filled, some common templating libraries that are used include Underscore, Mustache, Handlebars, jquery-tmpl. There may be several different views and the controller has to decide which one to use.
 								</p>
 								<p>In order for an object to be displayed, the object will inherit the properties/methods from the prototype and add the function for rendering the object.</p>
-								<pre><code class="javascript">Vehicle.prototype.render = function($tar){ /* render code */ };</code></pre>
+								<pre><code class="javascript">Vehicle.prototype.render = function($tar){ /* render function code */ };</code></pre>
 								<p>A target element is defined and will contain the elements created dynamically to hold the vehicle object attributes using the object's getter.</p>
-								<pre><code class="javascript">Vehicle.prototype.render = function($tar){ 
+								<pre><code class="javascript">Vehicle.prototype.render = function($tar){ // render function start
 	var container = document.createElement('div'),
 
 	itemMake = document.createElement('span'),
@@ -111,7 +111,7 @@ Vehicle.prototype.get = function(attr) {
 							</section>
 							<section>
 								<h3>Controller</h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis, voluptatibus minus veritatis illo nisi, voluptatum a odio voluptate mollitia sit! At accusamus aliquam nam.</p>
+								<p>The Controller acts as a bridge between one or more of an application's model and view. Controller objects will help inform the view and the model about changes. At the same time, the controller keeps the view and the model separate. We have created a model that describe vehicle objects, and created individual vehicle objects for information to be stored. A controller in the form of an event listener is created where the user may interact and view the object's properties.</p>
 <pre><code class="javascript">$('#defaultCar').on('click', function(e) {
 	var $tar = $('#defaultCarContainer');
 	defaultCar.render($tar);
@@ -121,6 +121,7 @@ $('#myCar').on('click', function(e) {
 	var $tar = $('#myCarContainer');
 	myCar.render($tar);
 });</code></pre>
+								<p>These event listeners are attached to the buttons below. You, as the user, may click on them in order to update the view through the functionality of the vehicle's render function.</p>
 								<div class="row">
 									<div class="col-12 col-md-6">
 										<button class="btn btn-info" id="defaultCar">Click to see defaultCar's values</button>
@@ -131,7 +132,7 @@ $('#myCar').on('click', function(e) {
 										<div id="myCarContainer"></div>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quasi odit totam culpa excepturi perferendis,</p>
+								<p>With the controller created as a middleman between model and view, the MVC design pattern is complete.</p>
 							</section>
 						</div>
 					</article>
