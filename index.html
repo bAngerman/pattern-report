@@ -68,7 +68,7 @@
 Vehicle.prototype.get = function(attr) {
 	return this[attr];
 };</code></pre>
-							<p>As an important side note we declare these functions as prototypes on the vehicle object in order to not create get and set functions for every vehicle object created. The set function is incomplete as it should also call a render function to update what the user sees in their application. The set function allows for changes in values to a vehicle object. I could update the vehicle objects mileage with the following:</p>
+							<p>As an important side note we declare these functions as prototypes on the vehicle object in order to not create get and set functions for every vehicle object created. The set function is incomplete as it should also call a render function to update what the user sees in their application but for the sake of simplicity of the demo it is omitted. The set function allows for changes in values to a vehicle object. I could update the vehicle objects mileage with the following:</p>
 <pre><code class="javascript">defaultCar.set('mileage', defaultCar.get('mileage') + 10000);
 	// defaultCar.get('mileage') is now 30000 (20000 from constructor + 10000 added).</code></pre>
 							<p>The get function is mostly used internally to compare values, calculate new values with or generate a view. The simple vehicle model is now complete.</p>
@@ -111,7 +111,7 @@ Vehicle.prototype.get = function(attr) {
 							</section>
 							<section>
 								<h3>Controller</h3>
-								<p>The Controller acts as a bridge between one or more of an application's model and view. Controller objects will help inform the view and the model about changes. At the same time, the controller keeps the view and the model separate. We have created a model that describe vehicle objects, and created individual vehicle objects for information to be stored. A controller in the form of an event listener is created where the user may interact and view the object's properties.</p>
+								<p>The controller acts as a bridge between one or more of an application's model and view. Controller objects will help inform the view and the model about changes. At the same time, the controller keeps the view and the model separate. We have created a model that describe vehicle objects, and created individual vehicle objects for information to be stored. A controller in the form of an event listener is created where the user may interact and view the object's properties.</p>
 <pre><code class="javascript">$('#defaultCar').on('click', function(e) {
 	var $tar = $('#defaultCarContainer');
 	defaultCar.render($tar);
